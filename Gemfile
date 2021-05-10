@@ -24,6 +24,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'omniauth'
 gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-google-oauth2'
+gem 'rack-cors'
+gem 'active_model_serializers'
 
 
 # Use Active Storage variant

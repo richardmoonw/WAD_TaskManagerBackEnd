@@ -10,7 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_07_063735) do
+ActiveRecord::Schema.define(version: 2021_05_08_040202) do
+
+  create_table "projects", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description", null: false
+    t.datetime "start_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description", null: false
+    t.string "status", null: false
+    t.string "priority", null: false
+    t.string "end_at", null: false
+    t.integer "project_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_tasks_on_project_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
@@ -21,4 +41,5 @@ ActiveRecord::Schema.define(version: 2021_05_07_063735) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "tasks", "projects"
 end
